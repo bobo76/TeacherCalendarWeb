@@ -40,7 +40,7 @@
     <button
       mat-raised-button
       class="my-button"
-      [disabled]="!username || !password || loading || !isLoged()"
+      [disabled]="!username || !password || loading || isLoged()"
       (click)="onSubmit()"
       color="primary"
     >
@@ -49,7 +49,7 @@
     <button
       mat-raised-button
       class="my-button"
-      [disabled]="isLoged()"
+      [disabled]="!isLoged()"
       (click)="logout()"
       color="primary"
     >
