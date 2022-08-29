@@ -6,7 +6,7 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { RouterModule, Routes } from '@angular/router';
-import { InformationsComponent } from './informations/informations.component'
+import { InformationsComponent } from './informations/informations.component';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -15,20 +15,23 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 
 import { UsersComponent } from './users/users.component';
 import { LoginComponent } from './login/login.component';
 import { CalendarComponent } from './calendar/calendar.component';
+
 import { FillInDataComponent } from './fill-in-data/fill-in-data.component';
+import { CalendarCellComponent } from './calendar-cell/calendar-cell.component';
 
 const routes: Routes = [
-  { path: "", component: InformationsComponent },
-  { path: "users", component: UsersComponent },
-  { path: "calendar", component: CalendarComponent },
-  { path: "fillInData", component: FillInDataComponent },
-  { path: "login", component: LoginComponent }
+  { path: '', component: InformationsComponent },
+  { path: 'users', component: UsersComponent },
+  { path: 'calendar', component: CalendarComponent },
+  { path: 'fillInData', component: FillInDataComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({
@@ -39,7 +42,8 @@ const routes: Routes = [
     UsersComponent,
     LoginComponent,
     CalendarComponent,
-    FillInDataComponent
+    FillInDataComponent,
+    CalendarCellComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -53,9 +57,10 @@ const routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatProgressSpinnerModule,
-    FormsModule
+    MatButtonModule,
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

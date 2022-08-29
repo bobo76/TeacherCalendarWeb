@@ -1,0 +1,24 @@
+button {
+  margin: 6px;
+}
+
+.cell {
+  border: 1pt solid white;
+  // border-radius: 2pt;
+  width: 100px;
+  height: 50px;
+  padding: 4px;
+  text-align: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  // margin-left: 6px;
+}
+
+.line {
+  display: flex;
+  flex-direction: row;
+  // margin-left: 6px;
+}

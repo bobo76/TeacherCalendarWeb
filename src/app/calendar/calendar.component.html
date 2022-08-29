@@ -1,1 +1,27 @@
-<p>calendar works!</p>
+<div>
+  <button mat-raised-button (click)="musicClick()">Musique</button>
+  <button mat-raised-button (click)="englishClick()">Anglais</button>
+  <button mat-raised-button (click)="sportClick()">Sport</button>
+</div>
+
+<div class="line">
+  <div class="cell">Heure</div>
+  <div *ngFor="let day of days">
+    <div class="cell">jour {{ day }}</div>
+  </div>
+</div>
+
+<div class="line">
+  <div class="column">
+    <div *ngFor="let period of periodsLabels">
+      <div class="cell">{{ period }}</div>
+    </div>
+  </div>
+  <div *ngFor="let day of days">
+    <div class="column">
+      <div class="cell" *ngFor="let period of periodsId">
+        <app-calendar-cell [day]="day" [period]="period"></app-calendar-cell>
+      </div>
+    </div>
+  </div>
+</div>
