@@ -6,22 +6,27 @@
 
 <div class="line">
   <div class="cell">Heure</div>
-  <div *ngFor="let day of days">
-    <div class="cell">jour {{ day }}</div>
-  </div>
+  <ng-container *ngFor="let day of days">
+    <div class="cell">Jour {{ day }}</div>
+  </ng-container>
 </div>
 
 <div class="line">
   <div class="column">
-    <div *ngFor="let period of periodsLabels">
-      <div class="cell">{{ period }}</div>
-    </div>
+    <ng-container *ngFor="let period of periodsLabels">
+      <div class="cell content">{{ period }}</div>
+    </ng-container>
   </div>
   <div *ngFor="let day of days">
     <div class="column">
-      <div class="cell" *ngFor="let period of periodsId">
-        <app-calendar-cell [day]="day" [period]="period"></app-calendar-cell>
-      </div>
+      <ng-container *ngFor="let period of periodsId">
+        <div class="cell content">
+          <app-calendar-cell
+            [day]="day"
+            [periode]="getPeriode(day, period)"
+          ></app-calendar-cell>
+        </div>
+      </ng-container>
     </div>
   </div>
 </div>
