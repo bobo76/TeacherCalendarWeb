@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Periode } from '../model';
 
 @Component({
   selector: 'app-calendar-cell',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CalendarCellComponent implements OnInit {
   @Input() day: string;
-  @Input() period: string;
+  @Input() periode: Periode;
 
   constructor() {}
 

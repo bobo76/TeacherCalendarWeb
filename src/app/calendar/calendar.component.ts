@@ -1,3 +1,4 @@
+import { Periode } from './../model/model';
 import { Component, OnInit } from '@angular/core';
 import { Calendar, eSpeciality } from '../model';
 // import { CalendarCellComponent } from '../calendar-cell/calendar-cell.component';
@@ -10,7 +11,7 @@ import { DataService } from '../_services/data.service';
 })
 export class CalendarComponent implements OnInit {
   days: string[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
-  periodsId: string[] = ['1', '2', '3', '4', '5'];
+  periodsId: number[] = [1, 2, 3, 4, 5];
   periodsLabels: string[] = [
     '8h10 - 9h10',
     '9h10 - 10h10',
@@ -61,5 +62,14 @@ export class CalendarComponent implements OnInit {
       console.log(c.specialityClass);
       return c.specialityClass?.name === filter;
     });
+  }
+
+  getPeriode(day: string, period: number): Periode {
+    return {
+      dayIx: +day - 1,
+      periodIx: period,
+      isOff: false,
+      ClassGroup: undefined,
+    };
   }
 }
