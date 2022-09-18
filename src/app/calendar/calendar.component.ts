@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CalendarCellComponent } from '../calendar-cell/calendar-cell.component';
+import { Calendar, eSpeciality } from '../model';
+// import { CalendarCellComponent } from '../calendar-cell/calendar-cell.component';
+import { DataService } from '../_services/data.service';
 
 @Component({
   selector: 'app-calendar',
@@ -17,19 +19,47 @@ export class CalendarComponent implements OnInit {
     '14h15 - 15h15',
   ];
 
-  constructor() {}
+  constructor(private data: DataService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
+  startBuild() {
+    this.data.startBuildSchedule(1).subscribe(nb => console.log(nb));
+  }
+
+  allClick() {
+    console.log('allClick');
+    this.data.getBestActualResult(1).subscribe(result => {
+      console.log(result)
+    });
+  }
   sportClick() {
     console.log('sportClick');
+    this.data.getBestActualResult(1).subscribe(result => {
+      console.log(this.filter(result, 'Sport'));
+    });
   }
 
   englishClick() {
     console.log('englishClick');
+    this.data.getBestActualResult(1).subscribe(result => {
+      console.log(this.filter(result, 'English'));
+    });
   }
 
   musicClick() {
     console.log('musicClick');
+    this.data.getBestActualResult(1).subscribe(result => {
+      console.log(result);
+      console.log(this.filter(result, 'Music'));
+    });
+  }
+
+  filter(calendars: Calendar[], filter: string): Calendar | undefined {
+
+    return calendars.find(c => {
+      console.log(c.specialityClass);
+      return c.specialityClass?.name === filter;
+    });
   }
 }

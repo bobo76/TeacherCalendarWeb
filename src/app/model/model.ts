@@ -1,26 +1,42 @@
+export enum eSpeciality {
+    'Music',
+    'English',
+    'Sport'
+}
+
+export interface CalendarDay {
+    name: string;
+    periodList: Periode[];
+}
+
+export interface Calendar {
+    dayList: CalendarDay[];
+    specialityClass: SpecialityClass;
+}
+
+export interface SpecialityClass {
+    name: string;
+}
+
+export interface Periode {
+    dayIx: number;
+    periodIx: number;
+    isOff: boolean;
+    ClassGroup?: ClassGroup_Teacher;
+}
+
+export interface ClassGroup_Teacher {
+    teacherName: string;
+    classLevel: ClassLevel;
+}
+
+export interface ClassLevel {
+    name: string;
+    levelValue: number;
+}
+
 export class InformationsDto {
     environement: string;
-}
-
-export class DomainSearchDto {
-    domNo: number;
-    grpDomNo: number;
-    domName: string;
-}
-
-export interface IDomainDto {
-    domNo: number;
-    grpDomNo: number;
-    domName: string;
-    optionMobile: boolean;
-    domainGroup: IDomainGroupDto;
-}
-
-export interface IDomainGroupDto {
-    grpDomNo: number;
-    ramqUser: string;
-    ramqSyncDate: Date;
-    ramqSync: boolean;
 }
 
 export class User {

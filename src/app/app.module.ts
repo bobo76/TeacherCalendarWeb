@@ -25,6 +25,8 @@ import { CalendarComponent } from './calendar/calendar.component';
 
 import { FillInDataComponent } from './fill-in-data/fill-in-data.component';
 import { CalendarCellComponent } from './calendar-cell/calendar-cell.component';
+import { DataService } from './_services/data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   { path: '', component: InformationsComponent },
@@ -49,6 +51,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatIconModule,
     MatToolbarModule,
     MatSidenavModule,
@@ -60,7 +63,7 @@ const routes: Routes = [
     MatButtonModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [ DataService ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
